@@ -166,7 +166,7 @@ The plugin must be loaded by the same Nix version it was compiled against
 
 ```bash
 PLUGIN=$(nix build .#cargo-nix-plugin --print-out-paths)
-NIX=$(nix build nixpkgs#nixVersions.nix_2_34 --print-out-paths | grep -v man)
+NIX=$(nix build nixpkgs#nixVersions.nix_2_35 --print-out-paths | grep -v man)
 
 $NIX/bin/nix-instantiate --eval \
   --option plugin-files "$PLUGIN/lib/nix/plugins" \
@@ -393,12 +393,12 @@ compiles too — `extraCfgs` only affects dependency resolution.
 - **Nix**: The plugin must be loaded by the **same Nix version** it was compiled
   against — the Nix plugin ABI is not stable across versions. If you see errors
   like `expected a set but found a set`, you have a version mismatch.
-  `.#cargo-nix-plugin` (the default) is built against Nix 2.34, so use Nix
-  2.34.x to evaluate:
+  `.#cargo-nix-plugin` (the default) is built against Nix 2.35, so use Nix
+  2.35.x to evaluate:
 
   ```bash
   # Get the matching nix
-  NIX=$(nix build nixpkgs#nixVersions.nix_2_34 --print-out-paths | grep -v man)
+  NIX=$(nix build nixpkgs#nixVersions.nix_2_35 --print-out-paths | grep -v man)
   PLUGIN=$(nix build .#cargo-nix-plugin --print-out-paths)
 
   $NIX/bin/nix build .#myPackage \

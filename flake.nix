@@ -48,6 +48,10 @@
           components = "nixComponents_2_34";
           binary = "nix_2_34";
         };
+        "2_35" = {
+          components = "nixComponents_2_35";
+          binary = "nix_2_35";
+        };
         # Pre-release: catches plugin ABI breaks before the next stable
         # nix release lands. Expected to break occasionally on nixpkgs bumps.
         "git" = {
@@ -181,7 +185,7 @@
 
       # The default nix version used for the top-level plugin package.
       # Keep README.md (## Example, ## Compatibility) in sync when bumping.
-      defaultNixComponents = "nixComponents_2_34";
+      defaultNixComponents = "nixComponents_2_35";
     in
     {
       packages = forAllSystems (
